@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!zdu987)&&yv7(c7dse^ruqx%#rmjb@cd1o0_q*n6&-j66kn(d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+hu = True
 
 
 ALLOWED_HOSTS = ['www.greenlinks.club', '127.0.0.1', 'localhost', 'greenlinks.club','greenlinks-05811889e7b7.herokuapp.com', 'testserver']
