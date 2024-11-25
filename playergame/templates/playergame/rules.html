@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLinks - Game Rules</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #34d058;
+            --secondary-color: #28a745;
+            --background-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg-color: #1e1e1e;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: var(--card-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        p, li {
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Rules - GreenLinks</h1>
+        <h2>Objective</h2>
+        <p>Connect the <strong>Start Player</strong> to the <strong>End Player</strong> using a chain of <strong>Intermediate Players</strong> who share common clubs or international teams. You have 3 attempts per round to find the correct chain!</p>
+
+        <h2>How to Play</h2>
+        <ol>
+            <li><strong>Understand the Objective:</strong> You must connect the Start Player to the End Player using players who have played for the same club or represented the same national team. The fewer players you use, the better your score!</li>
+            <li><strong>Add Intermediate Players:</strong> Click the "Add Intermediate Player" button to choose players who form a connection between the Start Player and End Player. You can add up to 5 players in the chain.</li>
+            <li><strong>Submit Your Chain:</strong> Once you've chosen your players, click "Submit Chain" to see if your guesses are correct.</li>
+            <li><strong>Use Feedback:</strong> Based on your submission, you will receive feedback:
+                <ul>
+                    <li><span style="color: #6aaa64;">Green:</span> Player is in the correct position.</li>
+                    <li><span style="color: #c9b458;">Yellow:</span> Player is valid but in the wrong position.</li>
+                    <li><span style="color: #787c7e;">Gray:</span> Player is not a valid connection in the chain.</li>
+                </ul>
+            </li>
+            <li><strong>Hints:</strong> Click "Show Hint" to get a career overview of the Start and End Players, which may help you form your chain. Use hints wisely!</li>
+            <li><strong>Repeat:</strong> Continue guessing and refining your chain until you find the correct connection or use all your attempts.</li>
+        </ol>
+
+        <h2>Scoring and Tips</h2>
+        <ul>
+            <li><strong>Scoring:</strong> Points are awarded based on the number of correct connections and the total attempts used. Fewer attempts and shorter chains earn higher scores!</li>
+            <li><strong>Bonus Points:</strong> Find the shortest possible chain (the "Optimal Link") to earn bonus points.</li>
+            <li><strong>Avoid Duplicates:</strong> Do not use the same club to connect different pairs unless multiple links are allowed.</li>
+            <li><strong>Maximize Your Knowledge:</strong> Use your knowledge of player histories to make strategic guesses.</li>
+        </ul>
+
+        <h2>Game Rules</h2>
+        <p>1. A valid chain must use real player names.<br>
+           2. Intermediate players must connect through common clubs or international teams.<br>
+           3. You cannot use the Start Player or End Player as an intermediate player.<br>
+           4. You have three attempts per round to create a valid chain.</p>
+
+        <p>Ready to test your football knowledge? Dive in and see how many connections you can make!</p>
+    </div>
+</body>
+</html>

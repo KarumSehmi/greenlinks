@@ -1,0 +1,2935 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greenlinks - football game</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      :root {
+    --primary-color: #34d058;
+    --secondary-color: #28a745;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg-color: #1e1e1e;
+}
+
+@font-face {
+    font-family: 'DejaVuSansMono';
+    src: url('fonts/DejaVuSansMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(52, 208, 88, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(40, 167, 69, 0.05) 0%, transparent 20%);
+    z-index: -1;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+#titlegreenlinks {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+}
+
+.card, .chain-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    background-color: #2c2c2c;
+    border: 1px solid #3d3d3d;
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(52, 208, 88, 0.3);
+    border-color: var(--primary-color);
+}
+
+.form-control[readonly] {
+    opacity: 0.7;
+}
+
+.form-control::placeholder {
+    color: #a9a9a9;
+}
+
+.form-control.valid {
+    border: 2px solid #28a745;
+    background-color: #82d16b;
+    color: white;
+}
+
+.form-control.invalid {
+    border: 2px solid #dc3545;
+    background-color: #ff7676;
+    color: white;
+}
+
+.form-control.partial {
+    border: 2px solid #ffc107;
+    background-color: #fff3cd;
+    color: black;
+}
+
+.btn {
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+}
+
+.btn-custom, .start-game-button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+}
+
+.btn-custom:hover, .start-game-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger-custom {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+}
+
+.btn-danger-custom:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-info, .btn-secondary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-info:hover, .btn-secondary:hover {
+    background-color: #0056b3;
+}
+
+.btn-info:active, .btn-secondary:active, .btn-custom:active, .btn-danger-custom:active {
+    transform: scale(0.98);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    
+}
+
+.form-group.position-relative {
+    position: relative;
+}
+
+.form-group.position-relative.d-flex.align-items-center {
+    margin-bottom: 10px;
+}
+
+.form-control.intermediate-player {
+    width: calc(100% - 30px);
+}
+
+.remove-player-btn {
+    position: static;
+    background: transparent;
+    border: none;
+    color: #dc3545;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.remove-player-btn:hover {
+    color: #a71d2a;
+}
+
+.remove-player-btn:focus {
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-group-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-group-button .btn {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.autocomplete-suggestions {
+    background-color: #2c2c2c;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.autocomplete-suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #3d3d3d;
+}
+
+
+
+.loading-spinner {
+    display: none;
+    margin-left: 10px;
+}
+
+.chain-link {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.table, .custom-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    border: 2px solid #28a745;
+    overflow: hidden;
+}
+
+.table th, .table td, .custom-table th, .custom-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #454545;
+    text-align: center;
+}
+
+.table thead th, .custom-table th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #454545;
+    background-color: #28a745;
+    color: white;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #454545;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #343a40;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #3e444b;
+}
+
+#link-type {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    border: 1px solid #3d3d3d;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.player-career-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.player-career-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.career-category {
+    margin-bottom: 20px;
+}
+
+.career-category h4 {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.start-game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.start-game-button {
+    font-size: 18px;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+
+
+.player-chain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.player-chain span {
+    display: block;
+    font-size: 1.5rem;
+    background-color: #2c2c2c;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: 2px solid #28a745;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-chain span:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #28a745;
+    color: white;
+    font-size: 24px;
+    margin: 20px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrow.invalid-link {
+    background-color: #dc3545;
+}
+
+.text-danger, .text-success {
+    margin-top: 20px;
+}
+
+.invalid-link-message {
+    color: #dc3545;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+:focus {
+    outline: 3px solid #34d058;
+}
+
+.form-check-label {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #3d3d3d;
+    background-color: #2c2c2c;
+    transition: border-color 0.3s ease;
+}
+
+.form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.form-check-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
+}
+
+.center-text {
+    text-align: center;
+    margin: auto;
+}
+
+
+
+
+#lives-container {
+    margin: 20px 0;
+}
+
+#lives {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart {
+    font-size: 2.5rem;
+    color: #dc3545;
+    margin: 0 5px;
+    transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.heart.lost {
+    color: #6c757d;
+    transform: scale(0.7);
+    opacity: 0.5;
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.5; transform: scale(0.7); }
+}
+
+#result, #optimal-result {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #1e1e1e;
+    border: 1px solid #3d3d3d;
+    color: #e0e0e0;
+}
+
+#result .result-card, #optimal-result .optimal-card {
+    padding: 15px;
+}
+
+#result .card-content, #optimal-result .card-content {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3d3d3d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#result h3, #optimal-result h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+#result .card-content a, #optimal-result .card-content a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#result .card-content a:hover, #optimal-result .card-content a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-content {
+    max-width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #121212;
+    color: #28a745;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#losing-overlay .overlay-content {
+    color: #f85149;
+}
+
+#optimal-link-overlay .overlay-content,
+#score-overlay .overlay-content {
+    color: #34d058;
+}
+
+#score-overlay .overlay-content {
+    max-width: 90%;
+    width: 600px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+#next_round_btn_div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#next-round {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#score-bar {
+    background-color: #1e1e1e;
+    height: 35px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.3);
+    position: relative;
+    margin-bottom: 20px;
+    border: 2px solid #34d058;
+    padding: 5px;
+    text-align: center;
+}
+
+#score-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #e0e0e0;
+    width: 0%;
+    position: relative;
+    background: linear-gradient(45deg, #34d058, #28a745, #00ff00);
+    box-shadow: 0 0 15px #34d058, 0 0 25px #28a745;
+    transition: width 0.5s ease;
+    animation: glowing 2s infinite alternate;
+}
+
+#fire-effect {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background: url('https://example.com/fire.png');
+    background-size: cover;
+    opacity: 0.7;
+    animation: flicker 0.2s infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#score-text {
+    z-index: 2;
+    position: relative;
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px #34d058;
+}
+
+#score-bar {
+    padding: 0;
+    overflow: hidden;
+}
+
+#score-progress {
+    height: 100%;
+    border-radius: 8px;
+}
+
+#score-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes flicker {
+    0% { transform: translateY(-5px) scaleX(1.2); opacity: 0.8; }
+    100% { transform: translateY(0) scaleX(1.0); opacity: 1; }
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 10px #34d058, 0 0 20px #28a745; }
+    100% { box-shadow: 0 0 20px #00ff00, 0 0 30px #34d058; }
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e0e0e0;
+}
+
+.football {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/013/362/736/small/football-soccer-transparent-free-png.png');
+    background-size: cover;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#final-score-text {
+    color: white;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #121212;
+    border-bottom: 1px solid #333;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+.menu-icon, .icon-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: color 0.3s ease;
+}
+
+.icon-button i, .icon-button .material-icons-outlined {
+    font-size: 24px;
+}
+
+.icon-button:hover {
+    color: #34d058;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+
+.icon-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.icon-button:hover,
+.icon-button:focus {
+    color: #34d058;
+    outline: none;
+}
+
+.icon-button.active {
+    color: #34d058;
+}
+
+.help-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.help-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.help-overlay-content {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.help-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.help-close-button:hover {
+    color: #f85149;
+}
+
+.example {
+    margin-bottom: 15px;
+}
+
+.example-player {
+    display: block;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.example-player.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.example-player.misplaced {
+    background-color: #c9b458;
+    color: white;
+}
+
+.example-player.incorrect {
+    background-color: #787c7e;
+    color: white;
+}
+
+.scrollable-container {
+    max-height: 40vh;
+    overflow-y: auto;
+    border: 1px solid #3d3d3d;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #1e1e1e;
+}
+
+#final-guess-list .player-chain {
+    margin-bottom: 10px;
+}
+
+#final-guess-list .player-chain span {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+}
+
+#final-guess-list .arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#final-guess-list .chain-card {
+    margin-bottom: 10px;
+}
+
+#final-guess-list .card-header {
+    padding: 8px;
+    font-size: 1.2rem;
+}
+
+#final-guess-list .card-body {
+    padding: 10px;
+}
+
+#final-guess-list .custom-table {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+#final-guess-list .custom-table th,
+#final-guess-list .custom-table td {
+    padding: 5px;
+}
+
+#share-results {
+    margin-top: 10px;
+}
+
+#score-overlay .overlay-content a.btn-custom {
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-group, .btn-custom, .btn-danger-custom, .start-game-button {
+        width: 100%;
+    }
+
+    .card-body, .card-header, .player-chain span {
+        padding: 10px;
+    }
+
+    .custom-table th, .custom-table td {
+        padding: 0.5rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.form-control.intermediate-player {
+    width: calc(100% - 30px);
+}
+
+.remove-player-btn:hover {
+    color: #a71d2a;
+}
+.remove-player-btn:focus {
+    outline: none;
+}
+
+.card-table th, .card-table td {
+    color: #e0e0e0;
+    background-color: #333333;
+}
+.card-table th {
+    font-weight: bold;
+    background-color: #444444;
+}
+
+#start-player {
+    color: black;
+}
+#end-player{
+    color: black;
+}
+
+.card {
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    border-color: #34d058;
+    box-shadow: 0 0 0 3px rgba(52, 208, 88, 0.25);
+}
+
+/* sdd */
+
+
+
+
+
+
+
+/* Add a subtle gradient background to the body */
+body {
+    background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+}
+
+/* Enhance the title with a text shadow and gradient */
+#titlegreenlinks {
+    background: linear-gradient(45deg, #34d058, #28a745);
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 4.5rem;
+    letter-spacing: 2px;
+}
+
+/* Add a subtle glow effect to cards */
+.card {
+    box-shadow: 0 0 15px rgba(52, 208, 88, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 25px rgba(52, 208, 88, 0.2);
+
+}
+
+/* Improve button styling */
+.btn-custom, .btn-danger-custom, .btn-info, .btn-secondary {
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:hover, .btn-danger-custom:hover, .btn-info:hover, .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhance form inputs */
+.form-control {
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(52, 208, 88, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Add animation to the player chain */
+.player-chain span {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-chain span:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhance the score bar */
+#score-bar {
+    height: 35px;
+    border-radius: 17.5px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+#score-progress {
+    background: linear-gradient(45deg, #34d058, #28a745, #00ff00);
+    box-shadow: 0 0 15px #34d058, 0 0 25px #28a745;
+    transition: width 0.5s ease;
+    animation: glowing 2s infinite alternate;
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 10px #34d058, 0 0 20px #28a745; }
+    100% { box-shadow: 0 0 20px #00ff00, 0 0 30px #34d058; }
+}
+
+/* Add a pulsing effect to the hearts */
+.heart {
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* Improve overlay styling */
+.overlay-content {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* Enhance table styling */
+.custom-table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table th {
+    background: linear-gradient(45deg, #28a745, #34d058);
+}
+
+/* Add smooth transitions to icon buttons */
+.icon-button {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-button:hover {
+    transform: scale(1.2);
+    color: #34d058;
+}
+
+/* Existing styles... */
+
+/* Updated Top Bar Styles */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent dark background */
+    border-bottom: 1px solid #34d058; /* Green border to match the theme */
+    color: #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Adds a frosted glass effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.menu-icon, .icon-button {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.icon-button i, .icon-button .material-icons-outlined {
+    font-size: 22px;
+}
+
+.menu-icon:hover, .icon-button:hover {
+    color: #34d058;
+    background-color: rgba(52, 208, 88, 0.1); /* Slight green highlight on hover */
+    transform: scale(1.1);
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Adjust the main container to account for the top bar */
+.container {
+    padding-top: 80px; /* Increase this value if needed */
+}
+
+/* Enhance the title to stand out more */
+#titlegreenlinks {
+    margin-top: -40px; /* Adjust if needed to reduce space at the top */
+    text-shadow: 0 0 10px rgba(52, 208, 88, 0.5);
+}
+
+/* Add a subtle gradient to the body for more depth */
+body {
+    background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+}
+
+
+/* Update the top bar styles */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: rgba(30, 30, 30, 0.95); /* Slightly more opaque for better readability */
+    border-bottom: 1px solid #34d058;
+    color: #e0e0e0;
+    position: fixed; /* Change from sticky to fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Ensure the container starts below the fixed top bar */
+.container {
+    margin-top: 20px; /* Add some space between the top bar and the main content */
+}
+
+
+/* Existing styles... */
+
+#titlegreenlinks {
+
+    margin-bottom: 15px;
+    padding-top: 5px;
+    text-align: center; /* Ensure text is centered */
+    width: 100%; /* Full width to allow proper centering */
+}
+
+.container {
+
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    max-width: 900px; /* Adjust based on your design preferences */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #titlegreenlinks {
+        font-size: 4rem; /* Reduce font size on smaller screens */
+    }
+
+    .top-bar {
+        padding: 5px 10px; /* Reduce padding on smaller screens */
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    #titlegreenlinks {
+        font-size: 4rem; /* Further reduce font size on very small screens */
+    }
+
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+.help-overlay-content {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh; /* Ensure it does not exceed 80% of the viewport height */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Enables scrolling for overflow content */
+}
+
+.help-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Adds padding around the content to center it better */
+}
+
+.example {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.example-player {
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.example-player.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.example-player.misplaced {
+    background-color: #c9b458;
+    color: white;
+}
+
+.example-player.incorrect {
+    background-color: #787c7e;
+    color: white;
+}
+/* sadadsadsd
+*/
+
+
+/* Ensure flexbox centering for the title container */
+
+/* Existing styles continue... */
+
+/* Existing styles continue... */
+/* Existing styles continue... */
+
+
+/* Enhanced Styles for GreenLinks */
+
+/* Animated title */
+
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--primary-color), 0 0 20px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
+    }
+}
+
+/* Improved form input section */
+.player-input-container {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.player-input-container:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.player-input {
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--input-border-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.player-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 208, 88, 0.25);
+}
+
+/* Animated add player button */
+#add-player {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+
+
+/* Animated remove player button */
+.remove-player-btn {
+    background-color: transparent;
+    border: none;
+    color: #dc3545;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+
+
+/* Smooth transitions for form controls */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+.form-control.valid {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control.invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control.partial {
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+/* Animated submit button */
+#chain-form button[type="submit"] {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#chain-form button[type="submit"]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: all 0.6s;
+}
+
+#chain-form button[type="submit"]:hover:before {
+    left: 100%;
+}
+
+#chain-form button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Pulsating effect for hearts */
+.heart {
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* Improve visibility of autocomplete suggestions */
+.autocomplete-suggestions {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 0 0 10px 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-suggestion {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.autocomplete-suggestion:hover {
+    background-color: rgba(52, 208, 88, 0.1);
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="top-bar">
+        <button class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="icons">
+            <button class="icon-button"><i class="far fa-lightbulb"></i></button> <!-- Example with Font Awesome -->
+            <button class="icon-button"><i class="fas fa-signal"></i></button>
+            <button class="icon-button"><i class="fas fa-question-circle"></i></button>
+            <button class="icon-button"><i class="fas fa-cog"></i></button>
+        </div>
+    </div>
+
+
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="spinner-container">
+            <div class="football"></div>
+            <p>Validating your chain, please wait...</p>
+        </div>
+    </div>
+    <div id="score-overlay" class="overlay">
+        <div class="overlay-content">
+            <h1>Final Score</h1>
+            <p id="final-score-text">Your total score is: 0</p>
+
+            <!-- New Section to Display Scores of Each Round -->
+            <h3>Score Breakdown</h3>
+            <ul id="round-scores-list" class="list-unstyled">
+                <!-- Scores for each round will be dynamically inserted here -->
+            </ul>
+
+            <!-- New Section for Final Guess and Optimal Guess -->
+            <div id="round-details" style="display: none;">
+                <h4>Round Details</h4>
+                <p><strong>Your Final Guess:</strong></p>
+                <div id="final-guess-container" class="scrollable-container">
+                    <div id="final-guess-list"></div>
+                </div>
+            </div>
+
+            <button id="share-results" class="btn btn-custom">Share Results</button>
+            <button id="copy-results" class="btn btn-custom">Copy Results</button>
+        </div>
+    </div>
+
+
+    <div id="optimal-link-overlay" class="overlay">
+        <div class="overlay-content">
+            <h1>Optimal Link Achieved!</h1>
+            <p>Congratulations! You have found the optimal link chain.</p>
+        </div>
+    </div>
+    <div id="losing-overlay" class="overlay">
+        <div class="overlay-content">
+            <h1>Round Lost</h1>
+            <p>You've used all your attempts.</p>
+        </div>
+    </div>
+    <div id="winning-overlay" class="overlay">
+        <div class="overlay-content">
+            <h1>You Won!</h1>
+            <p>Congratulations! You've successfully completed the challenge.</p>
+        </div>
+    </div>
+
+    <div id="help-overlay" class="help-overlay">
+        <div class="help-overlay-content">
+            <button id="help-close-button" class="help-close-button">&times;</button>
+            <h2>Welcome to GreenLinks!</h2>
+            <p><strong>Goal:</strong> Connect the <strong>Start Player</strong> to the <strong>End Player</strong> by selecting a chain of <strong>Intermediate Players</strong> who share common clubs or international teams. You have 3 attempts per round to find the correct chain!</p>
+            
+            <h3>How to Play</h3>
+            <ol>
+                <li><strong>Understand the Objective:</strong> You must connect the Start Player to the End Player using players who have played for the same club or represented the same national team. The fewer players you use, the better your score!</li>
+                <li><strong>Add Intermediate Players:</strong> Click the "Add Intermediate Player" button to choose players who form a connection between the Start Player and End Player. You can add up to 5 players in the chain.</li>
+                <li><strong>Submit Your Chain:</strong> Once you've chosen your players, click "Submit Chain" to see if your guesses are correct.</li>
+                <li><strong>Use Feedback:</strong> Based on your submission, you will receive feedback:
+                    <ul>
+                        <li><span class="example-player correct">Green:</span> Player is in the correct position.</li>
+                        <li><span class="example-player misplaced">Yellow:</span> Player is valid but in the wrong position.</li>
+                        <li><span class="example-player incorrect">Gray:</span> Player is not a valid connection in the chain.</li>
+                    </ul>
+                </li>
+                <li><strong>Hints:</strong> Click "Show Hint" to get a career overview of the Start and End Players, which may help you form your chain. Use hints wisely!</li>
+                <li><strong>Repeat:</strong> Continue guessing and refining your chain until you find the correct connection or use all your attempts.</li>
+            </ol>
+    
+            <h3>Scoring and Tips</h3>
+            <ul>
+                <li><strong>Scoring:</strong> Points are awarded based on the number of correct connections and the total attempts used. Fewer attempts and shorter chains earn higher scores!</li>
+                <li><strong>Bonus Points:</strong> Find the shortest possible chain (the "Optimal Link") to earn bonus points.</li>
+                <li><strong>Avoid Duplicates:</strong> Do not use the same club to connect different pairs unless multiple links are allowed.</li>
+                <li><strong>Maximize Your Knowledge:</strong> Use your knowledge of player histories to make strategic guesses.</li>
+            </ul>
+    
+            <h3>Game Rules</h3>
+            <p>1. A valid chain must use real player names.<br>
+               2. Intermediate players must connect through common clubs or international teams.<br>
+               3. You cannot use the Start Player or End Player as an intermediate player.<br>
+               4. You have three attempts per round to create a valid chain.</p>
+    
+            <p>Ready to test your football knowledge? Dive in and see how many connections you can make!</p>
+            <p><a href="/rules" class="rules-link">View Full Game Rules</a></p>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div class="container">
+        <div class="text-center mb-4">
+            <h1 class="mb-4" id="titlegreenlinks">
+                <b>
+                    <i>greenlinks</i>
+                </b>
+            </h1>
+
+            <!-- hidden--><button id="toggle-dark-mode" class="btn btn-custom mb-4" style="display:none">Toggle Dark Mode</button>
+
+
+
+
+            <div id="score-bar" class="progress my-3">
+                <div id="score-progress" class="progress-bar">
+                    <span id="score-text">Score: 0</span>
+                    <div id="fire-effect"></div> <!-- Fire effect layer -->
+                </div>
+            </div>
+
+        
+
+        </div>
+
+
+        <div class="card" id="game-form" style="display:none;">
+
+            <div class="card-header">
+
+                <h2 id="round-counter">Round 1 of 3</h2>
+
+
+                <label class="d-block" style="font-weight: bold; font-size: 1.2rem;" id="link-type-label">Link Type: Club Only</label> <!-- Static label indicating Club Only -->
+
+
+            </div>
+
+
+
+            <div class="card-body text-center">
+
+
+
+
+                <div id="lives-container" class="text-center mb-4">
+                    <h2>Lives Remaining:</h2>
+                    <div id="lives">
+                        <span class="heart">&#x2764;</span>
+                        <span class="heart">&#x2764;</span>
+                        <span class="heart">&#x2764;</span>
+                    </div>
+                </div>
+
+
+
+
+                <form id="chain-form" method="POST">
+
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="start-player">Start Player:</label>
+                        <input type="text" id="start-player" name="start-player" class="form-control" autocomplete="off" value="{{ start_player }}" readonly>
+                        <div id="start-player-suggestions" class="autocomplete-suggestions"></div>
+                    </div>
+                    <div id="intermediate-players" class="form-row"></div>
+                    <div class="form-group">
+                        <label for="end-player">End Player:</label>
+                        <input type="text" id="end-player" name="end-player" class="form-control" autocomplete="off" value="{{ end_player }}" readonly>
+                        <div id="end-player-suggestions" class="autocomplete-suggestions"></div>
+                    </div>
+                    <button id="hint-button" class="btn btn-info mb-4">Show Hint</button>
+
+                    <div id="hint-container" style="display: none; place-content: center;">
+                        <div class="player-career-container">
+                            <div class="player-career-section">
+                                <h3 id="start-player-name">Start Player</h3> <!-- Element for Start Player Name -->
+                                <div class="career-category">
+                                    <h4>Club Career</h4>
+                                    <table id="start-player-club-table" class="custom-table"></table>
+                                </div>
+                                <div class="career-category">
+                                    <h4>International Career</h4>
+                                    <table id="start-player-intl-table" class="custom-table"></table>
+                                </div>
+                            </div>
+
+                            <div class="player-career-section">
+                                <h3 id="end-player-name">End Player</h3> <!-- Element for End Player Name -->
+                                <div class="career-category">
+                                    <h4>Club Career</h4>
+                                    <table id="end-player-club-table" class="custom-table"></table>
+                                </div>
+                                <div class="career-category">
+                                    <h4>International Career</h4>
+                                    <table id="end-player-intl-table" class="custom-table"></table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p></p>
+
+                    <div class="text-center mb-4">
+                        <button id="add-player" class="btn btn-secondary mb-3" type="button">Add Intermediate Player</button>
+                    </div>
+                    <div class="form-group-button">
+                        <button type="submit" class="btn btn-custom">Submit Chain</button>
+                        <button type="button" id="end-game" class="btn btn-danger-custom ml-2">End Game</button>
+                    </div>
+                    <div class="loading-spinner" id="loading-spinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Searching...</span>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="text-center" id="next_round_btn_div">
+        <button id="next-round" class="btn btn-info" style="display:none;">Next Round</button>
+    </div>
+
+
+
+    <div id="result" ></div>
+
+    <p></p>
+    <div id="optimal-result"></div>
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            loadGameState();
+        });
+        let score = 0;
+        let lastRoundResult = null;
+        let playerCount = 0;
+        let isSubmitting = false;
+        let attemptCount = 0;
+        const maxAttempts = 3;
+        const defaultLives = 3;
+        let allowMultipleLinksValue = true;
+        let userGuesses = [];
+        let winningPointsAwarded = false;
+        let optimalPointsAwarded = false;
+        let roundScores = [0, 0, 0];
+        let linkType;
+        let isGameWon = false;
+        let previousGuesses = [];
+        const maxRounds = 3;
+        let currentRound = 0;
+        let roundResults = ["", "", ""]; // Initialize roundResults array
+
+        // DOM Elements
+        const scoreText = document.getElementById('score-text');
+        const scoreProgress = document.getElementById('score-progress');
+        const finalScoreText = document.getElementById('final-score-text');
+        const form = document.getElementById('chain-form');
+        const intermediatePlayersContainer = document.getElementById('intermediate-players');
+        const resultContainer = document.getElementById('result');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const scoreOverlay = document.getElementById('score-overlay');
+        const addPlayerButton = document.getElementById('add-player');
+        const endGameButton = document.getElementById('end-game');
+        const startGameButton = document.getElementById('start-game');
+        const gameForm = document.getElementById('game-form');
+        const hintButton = document.getElementById('hint-button');
+        const hintContainer = document.getElementById('hint-container');
+        const startPlayerClubTable = document.getElementById('start-player-club-table');
+        const startPlayerIntlTable = document.getElementById('start-player-intl-table');
+        const endPlayerClubTable = document.getElementById('end-player-club-table');
+        const endPlayerIntlTable = document.getElementById('end-player-intl-table');
+        const startPlayerName = document.getElementById('start-player-name');
+        const endPlayerName = document.getElementById('end-player-name');
+        const hearts = document.querySelectorAll('.heart');
+        const overlay = document.getElementById('winning-overlay');
+        const losingOverlay = document.getElementById('losing-overlay');
+        const optimalResultContainer = document.getElementById('optimal-result');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
+        const roundCounter = document.getElementById('round-counter');
+        const nextRoundButton = document.getElementById('next-round');
+        let isGameCompleted = false;
+        let roundData = [];
+        // Functions
+
+        function saveGameState() {
+            console.log("isgameover")
+            console.log(isGameCompleted)
+
+            const gameState = {
+                session_id: localStorage.getItem('sessionId'),
+                current_round: currentRound,
+                score: score,
+                lives_remaining: maxAttempts - attemptCount,
+                start_player: document.getElementById('start-player').value,
+                end_player: document.getElementById('end-player').value,
+                link_type: linkType,
+                previous_guesses: previousGuesses,
+                round_scores: roundScores,
+                is_game_won: isGameWon,
+                round_data: roundData,
+                round_results: roundResults,
+                is_game_completed: isGameCompleted  // New line
+            };
+
+            fetch('/api/save_game_state/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(gameState)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    console.log('Game state saved successfully');
+                } else {
+                    console.error('Failed to save game state');
+                }
+            })
+            .catch(error => console.error('Error saving game state:', error));
+        }
+        function loadGameState() {
+            const sessionId = localStorage.getItem('sessionId');
+            if (!sessionId) {
+                startNewGame();
+                helpOverlay.classList.add('show');
+                return;
+            }
+
+            fetch(`/api/load_game_state/?session_id=${sessionId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'error') {
+                    startNewGame();
+                    return;
+                }
+                
+                currentRound = data.current_round;
+                score = data.score;
+                attemptCount = maxAttempts - data.lives_remaining;
+                linkType = data.link_type;
+                previousGuesses = data.previous_guesses;
+                roundScores = data.round_scores;
+                isGameWon = data.is_game_won;
+                roundData = data.round_data; // Add this line
+                roundResults = data.round_results || ["", "", ""];
+               
+                isGameCompleted = data.is_game_completed;  // New line
+                console.log(isGameCompleted)
+              
+                if (isGameCompleted) {
+                    showFinalScore();
+                    return;
+                }
+        
+                // Load the current round data
+                if (roundData && roundData[currentRound]) {
+                    document.getElementById('start-player').value = roundData[currentRound].start_player;
+                    document.getElementById('end-player').value = roundData[currentRound].end_player;
+                    linkType = roundData[currentRound].link_type;
+                } else {
+                    startNewGame();
+                    return;
+                }
+
+                if (data.is_round_complete) {
+                    currentRound++; // Move to the next round
+                    if (currentRound >= maxRounds) {
+                        showFinalScore();
+                        return;
+                    }
+                    // Load new round data
+                    loadNewRoundData();
+                } else {
+                    // Load the current round data
+                    attemptCount = maxAttempts - data.lives_remaining;
+                    linkType = data.link_type;
+                    previousGuesses = data.previous_guesses;
+                    isGameWon = data.is_game_won;
+                    roundData = data.round_data;
+
+                    if (roundData && roundData[currentRound]) {
+                        document.getElementById('start-player').value = roundData[currentRound].start_player;
+                        document.getElementById('end-player').value = roundData[currentRound].end_player;
+                        linkType = roundData[currentRound].link_type;
+                    } else {
+                        loadNewRoundData();
+                        return;
+                    }
+
+
+                }
+
+                // Update UI elements
+                updateScore(0);
+                updateLives();
+                updateRoundCounter();
+                updateLinkTypeLabel(linkType);
+                gameForm.style.display = 'block';
+
+                console.log('Game state loaded successfully');
+            })
+            .catch(error => {
+                console.error('Error loading game state:', error);
+                startNewGame();
+            });
+                
+        }
+        function getIntermediatePlayers() {
+            const players = [];
+            for (let i = 1; i <= playerCount; i++) {
+                const playerInput = document.getElementById(`intermediate-player-${i}`);
+                if (playerInput && playerInput.value.trim() !== '') {
+                    players.push(playerInput.value.trim());
+                }
+            }
+            return players;
+        }
+
+        function startNewGame() {
+            const sessionId = generateUniqueId();
+            localStorage.setItem('sessionId', sessionId);
+
+            fetch(`/game/start_game/?round=0&allow_multiple_links=${allowMultipleLinksValue}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Failed to start the game. Please try again.');
+                    return;
+                }
+                
+                currentRound = 0;
+                score = 0;
+                attemptCount = 0;
+                document.getElementById('start-player').value = data.start_player;
+                document.getElementById('end-player').value = data.end_player;
+                linkType = data.link_type;
+                previousGuesses = [];
+                roundScores = [0, 0, 0];
+                isGameWon = false;
+                roundData = [{
+                    start_player: data.start_player,
+                    end_player: data.end_player,
+                    link_type: data.link_type
+                }];
+
+                updateLinkTypeLabel(linkType);
+                updateScore(0);
+                updateLives();
+                updateRoundCounter();
+                gameForm.style.display = 'block';
+                saveGameState();
+            })
+            .catch(error => {
+                console.error('Error starting new game:', error);
+                alert('An error occurred while starting the game. Please refresh the page and try again.');
+            });
+        }
+
+
+        function updateLinkTypeLabel(linkType) {
+            const linkTypeLabel = document.getElementById('link-type-label');
+            if (linkType === 'club') {
+                linkTypeLabel.textContent = 'Link Type: Club Only';
+            } else if (linkType === 'both') {
+                linkTypeLabel.textContent = 'Link Type: Both Club and International';
+            } else {
+                linkTypeLabel.textContent = 'Link Type: Unknown';
+            }
+        }
+
+        function updateScore(points) {
+            score += points;
+            scoreText.textContent = `Score: ${score}`;
+            updateScoreBar();
+            roundScores[currentRound] += points;
+            
+        }
+
+        function updateScoreBar() {
+            const maxScore = 21;
+            const scorePercentage = Math.min((score / maxScore) * 100, 100);
+            scoreProgress.style.width = `${scorePercentage}%`;
+            scoreProgress.setAttribute('aria-valuenow', scorePercentage);
+        }
+
+        function showLoadingOverlay() {
+            loadingOverlay.style.display = 'flex';
+            loadingOverlay.classList.add('show');
+        }
+
+        function hideLoadingOverlay() {
+            loadingOverlay.style.display = 'none';
+            loadingOverlay.classList.remove('show');
+        }
+
+        function handleOverlayClick(event, overlay, points, callback) {
+            if (event.target === overlay) {
+                overlay.classList.remove('show');
+                if (overlay === winningOverlay && !winningPointsAwarded) {
+                    updateScore(points);
+                    winningPointsAwarded = true;
+                } else if (overlay === optimalOverlay && !optimalPointsAwarded) {
+                    updateScore(points);
+                    optimalPointsAwarded = true;
+                }
+                if (callback) callback();
+            }
+        }
+
+        function updateLives() {
+            hearts.forEach((heart, index) => {
+                if (index < maxAttempts - attemptCount) {
+                    heart.classList.remove('lost');
+                } else {
+                    heart.classList.add('lost');
+                }
+            });
+        }
+
+        function useTurn() {
+            attemptCount++;
+            updateLives();
+        }
+
+        function populateTable(table, data) {
+            if (!data || data.length === 0) {
+                table.innerHTML = '<tr><td colspan="2">No data available</td></tr>';
+                return;
+            }
+
+            table.innerHTML = '';
+            data.sort((a, b) => {
+                const parseSeason = season => season.split('-')[0];
+                return parseInt(parseSeason(a.season)) - parseInt(parseSeason(b.season));
+            });
+
+            const headerRow = table.insertRow();
+            headerRow.insertCell(0).textContent = 'Season';
+            headerRow.insertCell(1).textContent = 'Team';
+
+            data.forEach(item => {
+                const row = table.insertRow();
+                row.insertCell(0).textContent = item.season;
+                row.insertCell(1).textContent = item.team;
+            });
+        }
+
+        function updateRoundCounter() {
+            if (roundCounter) {
+                roundCounter.textContent = `Round ${currentRound + 1} of ${maxRounds}`;
+            }
+        }
+
+        function showNextRoundButton() {
+            if (nextRoundButton) {
+                nextRoundButton.style.display = 'block';
+            }
+        }
+
+        function hideNextRoundButton() {
+            if (nextRoundButton) {
+                nextRoundButton.style.display = 'none';
+            }
+        }
+
+        function resetLives() {
+            hearts.forEach((heart, index) => {
+                if (index < defaultLives) {
+                    heart.classList.remove('lost');
+                } else {
+                    heart.classList.add('lost');
+                }
+            });
+        }
+
+        function loadNewRoundData() {
+            fetch(`/game/start_game/?round=${currentRound}&allow_multiple_links=${allowMultipleLinksValue}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Failed to load the next round. Please try again.');
+                    } else {
+                        resetGameUI();
+                        document.getElementById('start-player').value = data.start_player;
+                        document.getElementById('end-player').value = data.end_player;
+                        linkType = data.link_type;
+                        updateLinkTypeLabel(linkType);
+
+                        // Update round data
+                        roundData[currentRound] = {
+                            start_player: data.start_player,
+                            end_player: data.end_player,
+                            link_type: data.link_type
+                        };
+                        // Reset attempt count and game won status
+                        attemptCount = 0;
+                        isGameWon = false;
+                        saveGameState(); // Save the updated game state
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching new round data:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        }
+        function resetGameUI() {
+            document.getElementById('intermediate-players').innerHTML = '';
+            playerCount = 0;
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.classList.remove('valid', 'invalid', 'partial');
+            });
+            resultContainer.innerHTML = '';
+            resultContainer.style.display = 'none';
+            gameForm.style.display = 'block';
+            nextRoundButton.style.display = 'none';
+            attemptCount = 0;
+            isGameWon = false;
+            lastRoundResult = null;
+            previousGuesses = [];
+            winningPointsAwarded = false;
+            optimalPointsAwarded = false;
+            resetLives();
+
+            if (optimalResultContainer) {
+                optimalResultContainer.style.display = 'none';
+                optimalResultContainer.innerHTML = '';
+            }
+        }
+
+        function addIntermediatePlayer(playerId) {
+            const div = document.createElement('div');
+            div.classList.add('form-group', 'position-relative', 'd-flex', 'align-items-center', 'draggable-item');
+            div.setAttribute('id', `player-group-${playerId}`);
+            div.setAttribute('draggable', 'true');
+            div.innerHTML = `
+                <input type="text" id="intermediate-player-${playerId}" name="intermediate-player-${playerId}" class="form-control intermediate-player flex-grow-1" autocomplete="off">
+                <button type="button" class="btn remove-player-btn ml-2" data-player-id="${playerId}">&times;</button>
+                <div id="intermediate-player-suggestions-${playerId}" class="autocomplete-suggestions"></div>
+            `;
+            intermediatePlayersContainer.appendChild(div);
+            setupAutocomplete(`intermediate-player-${playerId}`, `intermediate-player-suggestions-${playerId}`);
+
+            div.addEventListener('dragstart', handleDragStart);
+            div.addEventListener('dragover', handleDragOver);
+            div.addEventListener('drop', handleDrop);
+            div.addEventListener('dragend', handleDragEnd);
+        }
+
+        function handleDragStart(event) {
+            draggedItem = event.currentTarget;
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/html', draggedItem.innerHTML);
+            setTimeout(() => draggedItem.classList.add('dragging'), 0);
+        }
+
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            const target = event.currentTarget;
+            if (target && target !== draggedItem && target.classList.contains('draggable-item')) {
+                intermediatePlayersContainer.insertBefore(draggedItem, target.nextSibling);
+            }
+        }
+
+        function handleDrop(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (draggedItem !== event.currentTarget) {
+                draggedItem.innerHTML = event.currentTarget.innerHTML;
+                event.currentTarget.innerHTML = event.dataTransfer.getData('text/html');
+            }
+        }
+
+        function handleDragEnd(event) {
+            draggedItem.classList.remove('dragging');
+            draggedItem = null;
+        }
+
+        function fetchOptimalLinks() {
+            const startPlayer = document.getElementById('start-player').value;
+            const endPlayer = document.getElementById('end-player').value;
+
+            fetch(`/game/get_precomputed_optimal_links/?start_player=${encodeURIComponent(startPlayer)}&end_player=${encodeURIComponent(endPlayer)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('optimal-result').innerHTML = `<div class="optimal-card"><div class="card-header">Optimal Result</div><p>Error: ${data.error}</p></div>`;
+                    } else {
+                        displayOptimalLinks(data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching precomputed optimal links:', error);
+                    document.getElementById('optimal-result').innerHTML = `<div class="optimal-card"><div class="card-header">Optimal Result</div><p>Error fetching optimal links: ${error.message}</p></div>`;
+                });
+        }
+
+        function generateShareableText() {
+            let shareText = "🔗 My GreenLinks results:\n\n";
+            roundScores.forEach((score, index) => {
+                shareText += `Round ${index + 1}: ${score} points\n`;
+                if (userGuesses[index]) {
+                    shareText += userGuesses[index].join(" ➡️ ") + "\n";
+                }
+                shareText += "\n";
+            });
+            shareText += `📊 Total Score: ${score}\n\n`;
+            shareText += "🎮 Play GreenLinks at https://www.greenlinks.club/";
+            return encodeURIComponent(shareText);
+        }
+
+        function generateResultHTML(data, chainElements) {
+            const resultContainer = document.createElement('div');
+            resultContainer.className = 'result-container';
+
+            const invalidLinks = data.invalid_links || [];
+            const links = data.links || [];
+            const duplicateClubs = data.duplicate_clubs || {};
+            const finalChain = data.final_chain || [];
+
+            chainElements.forEach((player, index) => {
+                if (index < chainElements.length - 1) {
+                    const nextPlayer = chainElements[index + 1];
+                    const arrowClass = invalidLinks.some(link => 
+                        normalizeName(link.from) === normalizeName(player) && 
+                        normalizeName(link.to) === normalizeName(nextPlayer)
+                    ) ? 'invalid-link' : 'valid-link';
+
+                    resultContainer.innerHTML += `
+                        <div class="player-chain">
+                            <span>${capitalizeName(player)}</span>
+                            <div class="arrow ${arrowClass}">↓</div>
+                        </div>
+                    `;
+
+                    const currentLink = links.find(link => 
+                        normalizeName(link.player) === normalizeName(player) && 
+                        normalizeName(link.next_player) === normalizeName(nextPlayer)
+                    );
+
+                    if (currentLink && (currentLink.common_clubs.length > 0 || (linkType === 'both' && currentLink.common_intl.length > 0))) {
+                        let greenLinksTableHTML = `
+                            <div class="card chain-card">
+                                <div class="card-header">${capitalizeName(currentLink.player)} to ${capitalizeName(currentLink.next_player)}</div>
+                                <div class="card-body">
+                        `;
+
+                        if (currentLink.common_clubs.length > 0) {
+                            greenLinksTableHTML += generateTable('Club Links', currentLink.common_clubs);
+                        }
+
+                        if (linkType === 'both' && currentLink.common_intl.length > 0) {
+                            greenLinksTableHTML += generateTable('International Links', currentLink.common_intl);
+                        }
+
+                        greenLinksTableHTML += `</div></div>`;
+                        resultContainer.innerHTML += greenLinksTableHTML;
+                    }
+                }
+            });
+
+            resultContainer.innerHTML += `<div class="player-chain"><span>${capitalizeName(chainElements[chainElements.length - 1])}</span></div>`;
+
+            if (invalidLinks.length > 0) {
+                let invalidLinksHTML = `
+                    <p class="text-danger center-text">Invalid chain! Issues with the following links:</p>
+                    <ul class="center-text">`;
+                
+                invalidLinks.forEach(link => {
+                    invalidLinksHTML += `
+                        <li class="invalid-link-message">
+                            From <strong>${capitalizeName(link.from)}</strong> 
+                            <span class="chain-link">&#x2192;</span> 
+                            <strong>${capitalizeName(link.to)}</strong> (${link.reason})
+                        </li>
+                    `;
+                });
+                invalidLinksHTML += '</ul>';
+                resultContainer.innerHTML += invalidLinksHTML;
+            }
+
+            if (finalChain.length > 0) {
+                let validChainHtml = `
+                    <p class="text-info center-text">Chain Details:</p>
+                    <ul class="center-text">
+                `;
+                finalChain.forEach(link => {
+                    validChainHtml += `<li>${capitalizeName(link[0])} to ${capitalizeName(link[1])} via ${capitalizeName(link[2])}</li>`;
+                });
+                validChainHtml += '</ul>';
+                resultContainer.innerHTML += validChainHtml;
+                resultContainer.innerHTML += '<p class="text-success center-text">Valid chain!</p>';
+            } else if (Object.keys(duplicateClubs).length > 0) {
+                let duplicateClubMessage = `
+                    <p class="text-warning center-text">Duplicate clubs used:</p>
+                    <ul class="center-text">
+                `;
+                Object.entries(duplicateClubs).forEach(([club, pairs]) => {
+                    duplicateClubMessage += `
+                        <li><strong>${club}</strong> used by: 
+                            ${pairs.map(pair => `${capitalizeName(pair[0])} & ${capitalizeName(pair[1])}`).join(', ')}
+                        </li>
+                    `;
+                });
+                duplicateClubMessage += '</ul>';
+                resultContainer.innerHTML += duplicateClubMessage;
+                resultContainer.innerHTML += '<p class="text-danger center-text">Invalid chain due to duplicate clubs.</p>';
+            }
+
+            return resultContainer.innerHTML;
+        }
+
+        function generateTable(title, data) {
+            let tableHTML = `
+                <p>${title}:</p>
+                <table class="custom-table">
+                    <thead>
+                        <tr><th>Season</th><th>${title === 'Club Links' ? 'Club' : 'International Team'}</th></tr>
+                    </thead>
+                    <tbody>
+            `;
+            data.forEach(item => {
+                tableHTML += `
+                    <tr>
+                        <td>${item.season}</td>
+                        <td>${item.team}</td>
+                    </tr>
+                `;
+            });
+            tableHTML += '</tbody></table>';
+            return tableHTML;
+        }
+
+        function normalizeName(name) {
+            // Normalize the string: remove non-alphanumeric characters except apostrophes, convert to lowercase
+            return name.normalize('NFKD').replace(/[^\w\s']/g, '').toLowerCase().replace(/\s+/g, '');
+        }
+
+        function capitalizeName(name) {
+            return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+        }
+
+        function displayOptimalLinks(links) {
+            let resultHTML = '<div class="optimal-card"><div class="card-header">Optimal Result</div>';
+            links.forEach((link, index) => {
+                resultHTML += `
+                    <div class="card-content">
+                        <h3>${link.player}</h3>
+                        <p>Common Clubs:</p>
+                        <table class="table table-bordered card-table">
+                            <thead><tr><th>Season</th><th>Club</th></tr></thead>
+                            <tbody>`;
+                link.common_clubs.forEach(club => {
+                    resultHTML += `<tr><td>${club.season}</td><td>${club.team}</td></tr>`;
+                });
+                resultHTML += `</tbody></table>`;
+                if (link.common_intl && link.common_intl.length > 0) {
+                    resultHTML += `<p>Common International Teams:</p>
+                        <table class="table table-bordered card-table">
+                            <thead><tr><th>Season</th><th>Team</th></tr></thead>
+                            <tbody>`;
+                    link.common_intl.forEach(team => {
+                        resultHTML += `<tr><td>${team.season}</td><td>${team.team}</td></tr>`;
+                    });
+                    resultHTML += `</tbody></table>`;
+                }
+                resultHTML += `
+                    <div class="chain-link">↓</div>
+                    <p><a href="${link.wiki_url}" target="_blank" class="link">${link.next_player}</a></p>
+                    </div>`;
+            });
+            resultHTML += '</div>';
+            const optimalResultContainer = document.getElementById('optimal-result');
+            optimalResultContainer.innerHTML = resultHTML;
+            optimalResultContainer.style.display = 'block';
+
+            const userChainLength = document.querySelectorAll('.form-group[id^="player-group-"]').length;
+            if (userChainLength === links.length - 1) {
+                if (isGameWon) {
+                    showOptimalLinkOverlay();
+                }
+            }
+        }
+
+        function showOptimalLinkOverlay() {
+            optimalOverlay.classList.add('show');
+        }
+
+        function renumberIntermediatePlayers() {
+            playerCount = 0;
+            const playerGroups = document.querySelectorAll('.form-group[id^="player-group-"]');
+            playerGroups.forEach((group, index) => {
+                playerCount++;
+                group.id = `player-group-${playerCount}`;
+                const input = group.querySelector('.intermediate-player');
+                const removeButton = group.querySelector('.remove-player-btn');
+                const suggestionsBox = group.querySelector('.autocomplete-suggestions');
+                input.id = `intermediate-player-${playerCount}`;
+                input.name = `intermediate-player-${playerCount}`;
+                removeButton.setAttribute('data-player-id', playerCount);
+                suggestionsBox.id = `intermediate-player-suggestions-${playerCount}`;
+            });
+        }
+
+        function showNoIntermediatePlayersMessage() {
+            resultContainer.innerHTML = '<h2 class="text-warning">Please add at least one intermediate player.</h2>';
+        }
+
+        function revalidateChain() {
+            const startPlayer = document.getElementById('start-player').value;
+            const endPlayer = document.getElementById('end-player').value;
+
+            const intermediatePlayers = [];
+            for (let i = 1; i <= playerCount; i++) {
+                const playerInput = document.getElementById(`intermediate-player-${i}`);
+                if (playerInput) {
+                    const player = playerInput.value.trim();
+                    if (player) {
+                        if (intermediatePlayers.includes(player.toLowerCase())) {
+                            alert(`The player ${player} has already been added. Please choose another player.`);
+                            return;
+                        }
+                        intermediatePlayers.push(player.toLowerCase());
+                    }
+                }
+            }
+            if (intermediatePlayers.includes(startPlayer.toLowerCase()) || intermediatePlayers.includes(endPlayer.toLowerCase())) {
+                alert("The start or end player cannot be used as an intermediate player.");
+                hideLoadingOverlay();
+                return;
+            }
+
+            if (intermediatePlayers.length === 0) {
+                alert("Please add an intermediate player.");
+                hideLoadingOverlay();
+                isSubmitting = false;
+                return;
+            }
+
+            fetch('/game/validate_chain/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: JSON.stringify({
+                    start_player: startPlayer,
+                    end_player: endPlayer,
+                    intermediate_players: intermediatePlayers,
+                    link_type: linkType,
+                    allow_multiple_links: allowMultipleLinksValue
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    loadingSpinner.style.display = 'none';
+                    isSubmitting = false;
+                    hideLoadingOverlay();
+                    const finalChain = data.final_chain || [];
+
+                    if (finalChain.length > 0) {
+                        isGameWon = true;
+                        fetchOptimalLinks();
+                        showWinningScreen();
+                    } else {
+                        useTurn();
+
+                        if (attemptCount >= maxAttempts) {
+                            roundResults[currentRound] = lastRoundResult;
+                            fetchOptimalLinks();
+                            showLosingScreen();
+                        } else {
+                            showTryAgainMessage();
+                            saveGameState();
+                        }
+                    }
+
+                    document.querySelectorAll('.form-control').forEach(input => {
+                        input.classList.remove('valid', 'invalid', 'partial');
+                    });
+
+                    const chainElements = [startPlayer, ...intermediatePlayers, endPlayer];
+                    const invalidLinks = data.invalid_links || [];
+                    const links = data.links || [];
+                    const duplicateClubs = data.duplicate_clubs || {};
+
+                    let isValidChain = finalChain.length > 0;
+
+                    resultContainer.innerHTML = '';
+
+                    chainElements.forEach((player, index) => {
+                        let input = null;
+                        if (index === 0) {
+                            input = document.getElementById('start-player');
+                        } else if (index === chainElements.length - 1) {
+                            input = document.getElementById('end-player');
+                        } else {
+                            input = document.getElementById(`intermediate-player-${index}`);
+                        }
+
+                        if (input && index > 0 && index < chainElements.length - 1) {
+                            const previousPlayer = chainElements[index - 1];
+                            const nextPlayer = chainElements[index + 1];
+                            const hasPreviousValidLink = links.some(link => normalizeName(link.player) === normalizeName(previousPlayer) && normalizeName(link.next_player) === normalizeName(player));
+                            const hasNextValidLink = links.some(link => normalizeName(link.player) === normalizeName(player) && normalizeName(link.next_player) === normalizeName(nextPlayer));
+
+                            if (hasPreviousValidLink && hasNextValidLink) {
+                                input.classList.add('valid');
+                            } else if (hasPreviousValidLink || hasNextValidLink) {
+                                input.classList.add('partial');
+                            } else {
+                                input.classList.add('invalid');
+                            }
+                        }
+                    });
+                    const userGuess = [startPlayer, ...intermediatePlayers, endPlayer];
+                    if (currentRound >= userGuesses.length) {
+                        userGuesses.push(userGuess);
+                    } else {
+                        userGuesses[currentRound] = userGuess;
+                    }
+
+                    resultContainer.innerHTML = generateResultHTML(data, chainElements);
+                    
+                    lastRoundResult = resultContainer.innerHTML;
+                    roundResults[currentRound] = lastRoundResult;
+            
+                })
+                .catch(error => {
+                    console.error('Error validating chain:', error);
+                    loadingSpinner.style.display = 'none';
+                    isSubmitting = false;
+                    hideLoadingOverlay();
+                });
+        }
+
+        function showFinalScore() {
+            isGameCompleted = true;  // Set the game as completed
+            saveGameState();  // Save the completed state
+            finalScoreText.textContent = `Your total score is: ${score}`;
+
+            const roundScoresList = document.getElementById('round-scores-list');
+            roundScoresList.innerHTML = '';
+
+            roundScores.forEach((roundScore, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Round ${index + 1}: ${roundScore} points`;
+                listItem.style.cursor = 'pointer';
+
+                listItem.addEventListener('click', function () {
+                    displayRoundDetails(index);
+                });
+
+                roundScoresList.appendChild(listItem);
+            });
+
+            scoreOverlay.classList.add('show');
+        }
+
+        function displayRoundDetails(roundIndex) {
+            const roundDetails = document.getElementById('round-details');
+            const finalGuessList = document.getElementById('final-guess-list');
+            const finalGuessContainer = document.getElementById('final-guess-container');
+
+            finalGuessList.innerHTML = '';
+
+            console.log(roundResults)
+
+            if (roundResults[roundIndex]) {
+                finalGuessList.innerHTML = roundResults[roundIndex];
+                finalGuessContainer.style.display = 'block';
+                finalGuessContainer.scrollTop = 0;
+            } else {
+                finalGuessList.innerHTML = '<p>No data available for this round.</p>';
+            }
+
+            roundDetails.style.display = 'block';
+        }
+
+        function showWinningScreen() {
+            isGameWon = true;
+            const overlay = document.getElementById('winning-overlay');
+            overlay.classList.add('show');
+
+            gameForm.style.display = 'none';
+            resultContainer.style.display = 'block';
+            showNextRoundButton();
+        }
+
+        function showLosingScreen() {
+            if (!isGameWon) {
+                if (losingOverlay) {
+                    losingOverlay.classList.add('show');
+                    showNextRoundButton();
+                    gameForm.style.display = 'none';
+                    resultContainer.style.display = 'block';
+                } else {
+                    console.error('Losing overlay element not found');
+                }
+            }
+        }
+
+        function hideOverlay() {
+            if (overlay) overlay.classList.remove('show');
+            if (losingOverlay) losingOverlay.classList.remove('show');
+        }
+
+        function showTryAgainMessage() {
+            resultContainer.innerHTML = '<h2 class="text-warning">That chain is not valid. Please try again!</h2>';
+            resultContainer.style.display = 'block';
+        }
+
+        function setupAutocomplete(inputId, suggestionsId) {
+            const input = document.getElementById(inputId);
+            const suggestionsBox = document.getElementById(suggestionsId);
+            const cache = {};
+
+            let debounceTimeout = null;
+            const debounceDelay = 200;
+
+            input.addEventListener('input', function () {
+                clearTimeout(debounceTimeout);
+                const query = input.value.trim();
+
+                if (query.length < 1) {
+                    suggestionsBox.innerHTML = '';
+                    return;
+                }
+
+                if (cache[query]) {
+                    displaySuggestions(cache[query]);
+                } else {
+                    debounceTimeout = setTimeout(async () => {
+                        try {
+                            const response = await fetch(`/game/suggest_player_names?query=${encodeURIComponent(query)}`);
+                            const suggestions = await response.json();
+                            cache[query] = suggestions;
+                            displaySuggestions(suggestions);
+                        } catch (error) {
+                            console.error('Error fetching player suggestions:', error);
+                        }
+                    }, debounceDelay);
+                }
+            });
+
+            function displaySuggestions(suggestions) {
+                suggestionsBox.innerHTML = '';
+                suggestions.forEach(suggestion => {
+                    const div = document.createElement('div');
+                    div.classList.add('autocomplete-suggestion');
+                    div.textContent = suggestion;
+                    div.addEventListener('click', function () {
+                        input.value = suggestion;
+                        suggestionsBox.innerHTML = '';
+                    });
+                    suggestionsBox.appendChild(div);
+                });
+            }
+
+            document.addEventListener('click', function (event) {
+                if (!suggestionsBox.contains(event.target) && event.target !== input) {
+                    suggestionsBox.innerHTML = '';
+                }
+            });
+        }
+
+        function endGame() {
+            gameForm.style.display = 'none';
+            startGameButton.style.display = 'block';
+
+            document.getElementById('start-player').value = '';
+            document.getElementById('end-player').value = '';
+            intermediatePlayersContainer.innerHTML = '';
+            playerCount = 0;
+
+            resultContainer.style.display = 'none';
+            attemptCount = 0;
+            previousGuesses.length = 0;
+            document.querySelectorAll('.form-control').forEach(input => {
+            input.classList.remove('valid', 'invalid', 'partial');
+        });
+
+        hintContainer.style.display = 'none';
+        resetLives();
+
+        score = 0;
+        updateScoreBar();
+    }
+
+    // Event Listeners
+    if (startGameButton) {
+        startGameButton.addEventListener('click', async function () {
+            const sessionId = generateUniqueId(); // Implement this function
+            localStorage.setItem('sessionId', sessionId);
+
+            const response = await fetch(`/game/start_game/?allow_multiple_links=${allowMultipleLinksValue}`);
+            const data = await response.json();
+            if (response.ok) {
+                document.getElementById('start-player').value = data.start_player;
+                document.getElementById('end-player').value = data.end_player;
+                linkType = data.link_type;
+                updateLinkTypeLabel(linkType);
+                gameForm.style.display = 'block';
+                startGameButton.style.display = 'none';
+                saveGameState(); // Save initial game state
+            } else {
+                alert('Failed to start the game. Please try again.');
+            }
+        });
+    }
+
+    function generateUniqueId() {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    }
+    
+    if (addPlayerButton) {
+        addPlayerButton.addEventListener('click', function () {
+            if (playerCount < 5) {
+                playerCount++;
+                addIntermediatePlayer(playerCount);
+            } else {
+                alert("You can add up to 5 intermediate players only.");
+            }
+        });
+    }
+
+    
+
+    intermediatePlayersContainer.addEventListener('click', function (event) {
+        if (event.target.classList.contains('remove-player-btn')) {
+            const playerId = event.target.getAttribute('data-player-id');
+            const playerGroup = document.getElementById(`player-group-${playerId}`);
+            if (playerGroup) {
+                playerGroup.remove();
+                renumberIntermediatePlayers();
+            }
+        }
+    });
+
+    const shareButton = document.getElementById('share-results');
+    if (shareButton) {
+        shareButton.addEventListener('click', function() {
+            const shareText = generateShareableText();
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
+            window.open(twitterUrl, '_blank');
+        });
+    }
+
+    const copyButton = document.getElementById('copy-results');
+    if (copyButton) {
+        copyButton.addEventListener('click', function() {
+            const shareText = generateShareableText();
+            navigator.clipboard.writeText(decodeURIComponent(shareText)).then(() => {
+                alert('Results copied to clipboard! You can now paste them anywhere you like.');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    }
+
+    nextRoundButton.addEventListener('click', function () {
+        if (currentRound < maxRounds - 1) {
+            currentRound++;
+            updateRoundCounter();
+            loadNewRoundData();
+            resetGameUI();
+        } else {
+            showFinalScore();
+        }
+    });
+
+    if (form) {
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            if (!isSubmitting) {
+                isSubmitting = true;
+                const submitButton = document.querySelector('#chain-form button[type="submit"]');
+                submitButton.disabled = true;
+
+                const intermediatePlayers = [];
+                for (let i = 1; i <= playerCount; i++) {
+                    const playerInput = document.getElementById(`intermediate-player-${i}`);
+                    if (playerInput && playerInput.value.trim() !== '') {
+                        intermediatePlayers.push(playerInput.value.trim().toLowerCase());
+                    }
+                }
+
+                const currentGuess = intermediatePlayers.join(',');
+                if (previousGuesses.includes(currentGuess)) {
+                    alert("You've already tried this sequence of intermediate players.");
+                    loadingSpinner.style.display = 'none';
+                    isSubmitting = false;
+                    hideLoadingOverlay();
+                    submitButton.disabled = false;
+                    return;
+                }
+
+                previousGuesses.push(currentGuess);
+
+                const uniquePlayers = new Set(intermediatePlayers);
+                if (uniquePlayers.size !== intermediatePlayers.length) {
+                    alert("The same player cannot be used more than once in the intermediate steps. Please choose different players.");
+                    hideLoadingOverlay();
+                    loadingSpinner.style.display = 'none';
+                    isSubmitting = false;
+                    submitButton.disabled = false;
+                    return;
+                }
+
+                showLoadingOverlay();
+                try {
+                    await revalidateChain();
+                } catch (error) {
+                    console.error('Error validating chain:', error);
+                } finally {
+                    isSubmitting = false;
+                    submitButton.disabled = false;
+                }
+            }
+        });
+        hideLoadingOverlay();
+        updateLives();
+    }
+
+    if (hintButton) {
+        hintButton.addEventListener('click', async function (event) {
+            event.preventDefault();
+
+            if (hintContainer.style.display === 'none' || hintContainer.style.display === '') {
+                hintContainer.style.display = 'flex';
+                hintButton.textContent = 'Hide Hint';
+
+                const startPlayer = document.getElementById('start-player').value;
+                const endPlayer = document.getElementById('end-player').value;
+                const normalizedStartPlayer = normalizeName(startPlayer);
+                const normalizedEndPlayer = normalizeName(endPlayer);
+                try {
+                    const response = await fetch(`/game/player_overview/?start_player=${normalizedStartPlayer}&end_player=${normalizedEndPlayer}&link_type=${linkType}`);
+                    const data = await response.json();
+                    if (response.ok) {
+                        populateTable(startPlayerClubTable, data.start_player_club_overview || []);
+                        populateTable(endPlayerClubTable, data.end_player_club_overview || []);
+
+                        if (linkType === 'both' || linkType === 'international') {
+                            populateTable(startPlayerIntlTable, data.start_player_intl_overview || []);
+                            populateTable(endPlayerIntlTable, data.end_player_intl_overview || []);
+                        }
+                    } else {
+                        alert('Failed to fetch player overviews. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error fetching player overviews:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            } else {
+                hintContainer.style.display = 'none';
+                hintButton.textContent = 'Show Hint';
+            }
+        });
+    }
+
+    const winningOverlay = document.getElementById('winning-overlay');
+    const optimalOverlay = document.getElementById('optimal-link-overlay');
+
+    if (winningOverlay) {
+        winningOverlay.addEventListener('click', function (event) {
+            handleOverlayClick(event, winningOverlay, 5);
+        });
+    }
+
+    if (optimalOverlay) {
+        optimalOverlay.addEventListener('click', function (event) {
+            handleOverlayClick(event, optimalOverlay, 2);
+        });
+    }
+
+    if (losingOverlay) {
+        losingOverlay.addEventListener('click', function (event) {
+            if (event.target === losingOverlay) {
+                hideOverlay();
+            }
+        });
+    }
+
+    overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) {
+            hideOverlay();
+        }
+    });
+
+    toggleDarkModeBtn.addEventListener('click', function () {
+        document.body.classList.toggle('light-mode');
+        document.querySelectorAll('.card').forEach(card => card.classList.toggle('light-mode'));
+
+        const currentMode = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+        localStorage.setItem('darkMode', currentMode);
+    });
+
+    const helpButton = document.querySelector('.icon-button .fa-question-circle');
+    const helpOverlay = document.getElementById('help-overlay');
+    const helpCloseButton = document.getElementById('help-close-button');
+
+    helpButton.addEventListener('click', function () {
+        helpOverlay.classList.add('show');
+    });
+
+    helpCloseButton.addEventListener('click', function () {
+        helpOverlay.classList.remove('show');
+    });
+
+    helpOverlay.addEventListener('click', function (event) {
+        if (event.target === helpOverlay) {
+            helpOverlay.classList.remove('show');
+        }
+    });
+
+    // Initialize
+    updateRoundCounter();
+    setupAutocomplete('start-player', 'start-player-suggestions');
+    setupAutocomplete('end-player', 'end-player-suggestions');
+
+    // Check for saved dark mode preference
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode) {
+        document.body.classList.toggle('light-mode', savedMode === 'light');
+        document.querySelectorAll('.card').forEach(card => card.classList.toggle('light-mode', savedMode === 'light'));
+    }
+
+
+    
+
+
+    </script>
+</body>
+</html>
