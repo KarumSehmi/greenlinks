@@ -1,0 +1,136 @@
+Manuel Akanji,Vinícius Júnior
+Jack Grealish,Serge Aurier
+Riyad Mahrez,Ronaldinho
+Edouard Mendy,Kevin De Bruyne
+Dele Alli,Robert Lewandowski
+Carlos Tevez,Jack Grealish
+Jude Bellingham,Timo Werner
+Max Aarons,Raphael Varane
+Manuel Neuer,Riyad Mahrez
+Christian Pulisic,Kalvin Phillips
+Michail Antonio,Rodrigo Bentancur
+Christian Pulisic,Philipp Lahm
+Alphonso Davies,Aymeric Laporte
+Alphonso Davies,Serge Aurier
+Fabien Barthez,Kai Havertz
+Alphonso Davies,Karim Benzema
+Cristiano Ronaldo,Max Aarons
+Jude Bellingham,Nemanja Vidić
+Achraf Hakimi,Kai Havertz
+Patrick Bamford,Rodrigo Bentancur
+Kai Havertz,Steven Gerrard
+Kalvin Phillips,Karim Benzema
+Achraf Hakimi,Max Aarons
+Gary Neville,Kai Havertz
+Manuel Akanji,Thibaut Courtois
+Erling Haaland,Joel Matip
+Sadio Mané,Zinedine Zidane
+Achraf Hakimi,Mason Mount
+Alphonso Davies,Dele Alli
+Edwin van der Sar,Kevin De Bruyne
+Cristiano Ronaldo,Hakim Ziyech
+Dele Alli,Joshua Kimmich
+Edouard Mendy,Nicolas Anelka
+Leon Goretzka,Mohamed Salah
+Michail Antonio,Robert Lewandowski
+Edgar Davids,Tammy Abraham
+Cristiano Ronaldo,Kevin De Bruyne
+Dele Alli,Lionel Messi
+Alessandro Del Piero,Sadio Mané
+Kevin De Bruyne,Mason Mount
+Leon Goretzka,Serge Aurier
+Manuel Akanji,Xavi
+Erling Haaland,Joshua Kimmich
+Joshua Kimmich,Max Aarons
+Alessandro Costacurta,Mason Mount
+Reece James,Vinícius Júnior
+Joshua Kimmich,Michail Antonio
+Gary Neville,Thibaut Courtois
+Edouard Mendy,Federico Valverde
+Dele Alli,Neymar
+David Villa,Kalvin Phillips
+Kalvin Phillips,Thibaut Courtois
+Rúben Dias,Serge Aurier
+Filippo Inzaghi,Vinícius Júnior
+Achraf Hakimi,Rodrigo Bentancur
+Joshua Kimmich,Serge Aurier
+Aymeric Laporte,Roberto Carlos
+Kai Havertz,Phil Foden
+Leon Goretzka,Michail Antonio
+Philipp Lahm,Reece James
+Kevin De Bruyne,Robert Lewandowski
+Erling Haaland,Serge Aurier
+Alessandro Costacurta,Marc-André ter Stegen
+Jude Bellingham,Kai Havertz
+Joshua Kimmich,Patrick Bamford
+Dida,Riyad Mahrez
+Dani Carvajal,Timo Werner
+Nathan Aké,Rodrigo Bentancur
+Davor Šuker,Rúben Dias
+Neymar,Rúben Dias
+Hakim Ziyech,Joel Matip
+Kai Havertz,Roberto Carlos
+Leon Goretzka,Lionel Messi
+Karim Benzema,Max Aarons
+Achraf Hakimi,Fernando Morientes
+Kevin De Bruyne,Sadio Mané
+Rodrigo Bentancur,Serge Aurier
+Gerard Piqué,Hakim Ziyech
+Jack Grealish,Marc-André ter Stegen
+Eduardo Camavinga,Joel Matip
+Alessandro Del Piero,Thibaut Courtois
+Achraf Hakimi,Sadio Mané
+Joel Matip,Rúben Dias
+Hristo Stoichkov,Thibaut Courtois
+Aymeric Laporte,Rodrigo Bentancur
+Leon Goretzka,Max Aarons
+Andrea Pirlo,Vinícius Júnior
+Federico Valverde,Mason Mount
+Dele Alli,Marc-André ter Stegen
+Aymeric Laporte,Wesley Sneijder
+Joshua Kimmich,Virgil van Dijk
+Max Aarons,Rodrigo Bentancur
+Leon Goretzka,Roberto Donadoni
+Manuel Akanji,Robert Lewandowski
+Robert Lewandowski,Serge Aurier
+Christian Pulisic,Thomas Müller
+Joshua Kimmich,Neymar
+Alphonso Davies,Max Aarons
+Manuel Akanji,Nicolas Anelka
+Kevin De Bruyne,Mohamed Salah
+Alphonso Davies,Tammy Abraham
+Fabien Barthez,Vinícius Júnior
+Mason Mount,Rúben Dias
+Alphonso Davies,Angelino
+Gennaro Gattuso,Timo Werner
+Christian Pulisic,Marc-André ter Stegen
+Leon Goretzka,Patrick Bamford
+Alessandro Costacurta,Hakim Ziyech
+Achraf Hakimi,Joshua Kimmich
+Joel Matip,Rodrigo Bentancur
+Carles Puyol,Kai Havertz
+Joshua Kimmich,Manuel Akanji
+Marc-André ter Stegen,Serge Aurier
+Ivan Rakitić,Kai Havertz
+Christian Pulisic,Kevin De Bruyne
+Marc-André ter Stegen,Michail Antonio
+Edwin van der Sar,Reece James
+Achraf Hakimi,Robert Lewandowski
+Alphonso Davies,John Stones
+Davor Šuker,Raphael Varane
+Joshua Kimmich,Karim Benzema
+Alphonso Davies,Michail Antonio
+Alessandro Nesta,Thibaut Courtois
+Achraf Hakimi,Achraf Hakimi
+Lionel Messi,Max Aarons
+Andrea Pirlo,Eduardo Camavinga
+Leon Goretzka,Rúben Dias
+Alphonso Davies,Bernardo Silva
+Carlos Tevez,Vinícius Júnior
+Lionel Messi,Rodrigo Bentancur
+Federico Valverde,Joel Matip
+Fernando Hierro,Mohamed Salah
+Marc-André ter Stegen,Mohamed Salah
+Max Aarons,Neymar
+Alessandro Costacurta,Timo Werner
+Edouard Mendy,Vinícius Júnior
