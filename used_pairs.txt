@@ -1,136 +1,270 @@
-Manuel Akanji,Vinícius Júnior
-Jack Grealish,Serge Aurier
-Riyad Mahrez,Ronaldinho
-Edouard Mendy,Kevin De Bruyne
-Dele Alli,Robert Lewandowski
-Carlos Tevez,Jack Grealish
-Jude Bellingham,Timo Werner
-Max Aarons,Raphael Varane
-Manuel Neuer,Riyad Mahrez
-Christian Pulisic,Kalvin Phillips
-Michail Antonio,Rodrigo Bentancur
-Christian Pulisic,Philipp Lahm
-Alphonso Davies,Aymeric Laporte
-Alphonso Davies,Serge Aurier
-Fabien Barthez,Kai Havertz
-Alphonso Davies,Karim Benzema
-Cristiano Ronaldo,Max Aarons
-Jude Bellingham,Nemanja Vidić
-Achraf Hakimi,Kai Havertz
-Patrick Bamford,Rodrigo Bentancur
-Kai Havertz,Steven Gerrard
-Kalvin Phillips,Karim Benzema
-Achraf Hakimi,Max Aarons
-Gary Neville,Kai Havertz
-Manuel Akanji,Thibaut Courtois
-Erling Haaland,Joel Matip
-Sadio Mané,Zinedine Zidane
-Achraf Hakimi,Mason Mount
-Alphonso Davies,Dele Alli
-Edwin van der Sar,Kevin De Bruyne
-Cristiano Ronaldo,Hakim Ziyech
-Dele Alli,Joshua Kimmich
-Edouard Mendy,Nicolas Anelka
-Leon Goretzka,Mohamed Salah
-Michail Antonio,Robert Lewandowski
-Edgar Davids,Tammy Abraham
-Cristiano Ronaldo,Kevin De Bruyne
-Dele Alli,Lionel Messi
-Alessandro Del Piero,Sadio Mané
-Kevin De Bruyne,Mason Mount
-Leon Goretzka,Serge Aurier
-Manuel Akanji,Xavi
-Erling Haaland,Joshua Kimmich
-Joshua Kimmich,Max Aarons
-Alessandro Costacurta,Mason Mount
-Reece James,Vinícius Júnior
-Joshua Kimmich,Michail Antonio
-Gary Neville,Thibaut Courtois
-Edouard Mendy,Federico Valverde
-Dele Alli,Neymar
-David Villa,Kalvin Phillips
-Kalvin Phillips,Thibaut Courtois
-Rúben Dias,Serge Aurier
-Filippo Inzaghi,Vinícius Júnior
-Achraf Hakimi,Rodrigo Bentancur
-Joshua Kimmich,Serge Aurier
-Aymeric Laporte,Roberto Carlos
-Kai Havertz,Phil Foden
-Leon Goretzka,Michail Antonio
-Philipp Lahm,Reece James
-Kevin De Bruyne,Robert Lewandowski
-Erling Haaland,Serge Aurier
-Alessandro Costacurta,Marc-André ter Stegen
-Jude Bellingham,Kai Havertz
-Joshua Kimmich,Patrick Bamford
-Dida,Riyad Mahrez
-Dani Carvajal,Timo Werner
-Nathan Aké,Rodrigo Bentancur
-Davor Šuker,Rúben Dias
-Neymar,Rúben Dias
-Hakim Ziyech,Joel Matip
-Kai Havertz,Roberto Carlos
-Leon Goretzka,Lionel Messi
-Karim Benzema,Max Aarons
-Achraf Hakimi,Fernando Morientes
-Kevin De Bruyne,Sadio Mané
-Rodrigo Bentancur,Serge Aurier
-Gerard Piqué,Hakim Ziyech
-Jack Grealish,Marc-André ter Stegen
-Eduardo Camavinga,Joel Matip
-Alessandro Del Piero,Thibaut Courtois
-Achraf Hakimi,Sadio Mané
-Joel Matip,Rúben Dias
-Hristo Stoichkov,Thibaut Courtois
-Aymeric Laporte,Rodrigo Bentancur
-Leon Goretzka,Max Aarons
-Andrea Pirlo,Vinícius Júnior
-Federico Valverde,Mason Mount
-Dele Alli,Marc-André ter Stegen
-Aymeric Laporte,Wesley Sneijder
-Joshua Kimmich,Virgil van Dijk
-Max Aarons,Rodrigo Bentancur
-Leon Goretzka,Roberto Donadoni
-Manuel Akanji,Robert Lewandowski
-Robert Lewandowski,Serge Aurier
-Christian Pulisic,Thomas Müller
-Joshua Kimmich,Neymar
-Alphonso Davies,Max Aarons
-Manuel Akanji,Nicolas Anelka
-Kevin De Bruyne,Mohamed Salah
-Alphonso Davies,Tammy Abraham
-Fabien Barthez,Vinícius Júnior
-Mason Mount,Rúben Dias
-Alphonso Davies,Angelino
-Gennaro Gattuso,Timo Werner
-Christian Pulisic,Marc-André ter Stegen
-Leon Goretzka,Patrick Bamford
-Alessandro Costacurta,Hakim Ziyech
-Achraf Hakimi,Joshua Kimmich
-Joel Matip,Rodrigo Bentancur
-Carles Puyol,Kai Havertz
-Joshua Kimmich,Manuel Akanji
-Marc-André ter Stegen,Serge Aurier
-Ivan Rakitić,Kai Havertz
-Christian Pulisic,Kevin De Bruyne
-Marc-André ter Stegen,Michail Antonio
-Edwin van der Sar,Reece James
-Achraf Hakimi,Robert Lewandowski
-Alphonso Davies,John Stones
-Davor Šuker,Raphael Varane
-Joshua Kimmich,Karim Benzema
-Alphonso Davies,Michail Antonio
-Alessandro Nesta,Thibaut Courtois
-Achraf Hakimi,Achraf Hakimi
-Lionel Messi,Max Aarons
-Andrea Pirlo,Eduardo Camavinga
-Leon Goretzka,Rúben Dias
-Alphonso Davies,Bernardo Silva
-Carlos Tevez,Vinícius Júnior
-Lionel Messi,Rodrigo Bentancur
-Federico Valverde,Joel Matip
-Fernando Hierro,Mohamed Salah
-Marc-André ter Stegen,Mohamed Salah
-Max Aarons,Neymar
-Alessandro Costacurta,Timo Werner
-Edouard Mendy,Vinícius Júnior
+Achraf Hakimi|Erling Haaland
+Achraf Hakimi|Kai Havertz
+Achraf Hakimi|Steven Gerrard
+Alessandro Del Piero|Aymeric Laporte
+Alessandro Del Piero|Edouard Mendy
+Alessandro Del Piero|Kalvin Phillips
+Alessandro Del Piero|Kevin De Bruyne
+Alessandro Del Piero|Robert Lewandowski
+Alessandro Del Piero|Thibaut Courtois
+Alisson Becker|Edouard Mendy
+Alisson Becker|John Stones
+Alisson Becker|Jude Bellingham
+Alisson Becker|Kevin De Bruyne
+Alisson Becker|Michael Carrick
+Alisson Becker|Samuel Eto'o
+Alisson Becker|Wayne Rooney
+Alphonso Davies|Angelino
+Alphonso Davies|Claude Makélélé
+Alphonso Davies|César Azpilicueta
+Alphonso Davies|Max Aarons
+Alphonso Davies|Michael Ballack
+Alphonso Davies|Michael Carrick
+Alphonso Davies|Nathan Aké
+Alphonso Davies|Patrick Bamford
+Alphonso Davies|Raphael Varane
+Alphonso Davies|Steve McManaman
+Alphonso Davies|Vinícius Júnior
+Alvaro Odriozola|Rodrigo Bentancur
+Alvaro Odriozola|Virgil van Dijk
+Andrea Pirlo|Vinícius Júnior
+Andrés Iniesta|Erling Haaland
+Angel Di María|Aymeric Laporte
+Angel Di María|Edouard Mendy
+Angel Di María|Hakim Ziyech
+Angel Di María|Kevin De Bruyne
+Angel Di María|Max Aarons
+Angel Di María|Sadio Mané
+Angelino|Virgil van Dijk
+Arjen Robben|Aymeric Laporte
+Arjen Robben|Christian Pulisic
+Arjen Robben|Manuel Akanji
+Aymeric Laporte|Bastian Schweinsteiger
+Aymeric Laporte|Dani Carvajal
+Aymeric Laporte|Hakim Ziyech
+Aymeric Laporte|Lionel Messi
+Aymeric Laporte|Roberto Carlos
+Aymeric Laporte|Serge Aurier
+Aymeric Laporte|Tammy Abraham
+Christian Pulisic|Dele Alli
+Christian Pulisic|Ivan Perišić
+Christian Pulisic|Joshua Kimmich
+Christian Pulisic|Leon Goretzka
+Christian Pulisic|Lionel Messi
+Christian Pulisic|Niklas Süle
+Christian Pulisic|Robert Lewandowski
+Clarence Seedorf|Eduardo Camavinga
+Claude Makélélé|Edouard Mendy
+Claude Makélélé|Ilkay Gündogan
+Claude Makélélé|Rúben Dias
+Cristiano Ronaldo|Lionel Messi
+Cristiano Ronaldo|Max Aarons
+Cristiano Ronaldo|Reece James
+Cristiano Ronaldo|Riyad Mahrez
+Cristiano Ronaldo|Rúben Dias
+Cristiano Ronaldo|Tony Adams
+Cristiano Ronaldo|Virgil van Dijk
+Dani Carvajal|Gary Cahill
+Dani Carvajal|Jaap Stam
+Dani Carvajal|Leon Goretzka
+Dani Carvajal|Marc-André ter Stegen
+Dani Carvajal|Neymar
+Dani Carvajal|Reece James
+Dani Carvajal|Xavi
+Dani Ceballos|Virgil van Dijk
+David Beckham|Jude Bellingham
+David Villa|Edouard Mendy
+David Villa|Kalvin Phillips
+Deco|Mason Mount
+Deco|Rodrigo Bentancur
+Dele Alli|Edouard Mendy
+Dele Alli|Ivan Perišić
+Dele Alli|Jude Bellingham
+Dele Alli|Lionel Messi
+Dele Alli|Neymar
+Dele Alli|Reece James
+Dele Alli|Virgil van Dijk
+Donny van de Beek|Erling Haaland
+Donny van de Beek|Jack Grealish
+Donny van de Beek|Joshua Kimmich
+Donny van de Beek|Jude Bellingham
+Donny van de Beek|Leon Goretzka
+Donny van de Beek|Neymar
+Donny van de Beek|Phil Foden
+Donny van de Beek|Riyad Mahrez
+Donny van de Beek|Rúben Dias
+Edouard Mendy|Fernando Redondo
+Edouard Mendy|Ilkay Gündogan
+Edouard Mendy|Jaap Stam
+Edouard Mendy|Joshua Kimmich
+Edouard Mendy|Leon Goretzka
+Edouard Mendy|Lucas Hernández
+Edouard Mendy|Michael Ballack
+Edouard Mendy|Michael Carrick
+Edouard Mendy|Patrice Evra
+Eduardo Camavinga|Marc-André ter Stegen
+Eduardo Camavinga|Nemanja Vidić
+Eduardo Camavinga|Reece James
+Erling Haaland|Federico Valverde
+Erling Haaland|Hakim Ziyech
+Erling Haaland|Iker Casillas
+Erling Haaland|Ivan Perišić
+Erling Haaland|Joel Matip
+Erling Haaland|Sadio Mané
+Erling Haaland|Sami Khedira
+Erling Haaland|Serge Aurier
+Erling Haaland|Steve McManaman
+Erling Haaland|Virgil van Dijk
+Fabien Barthez|Vinícius Júnior
+Federico Valverde|Joel Matip
+Federico Valverde|Leon Goretzka
+Federico Valverde|Mason Mount
+Federico Valverde|Phil Foden
+Federico Valverde|Rodrigo Bentancur
+Federico Valverde|Ronaldinho
+Federico Valverde|Rúben Dias
+Federico Valverde|Virgil van Dijk
+Fernando Hierro|Jude Bellingham
+Fernando Hierro|Sadio Mané
+Fernando Redondo|Ilkay Gündogan
+Fernando Redondo|Kai Havertz
+Fernando Redondo|Mason Mount
+Fernando Redondo|Neymar
+Franck Ribéry|Tammy Abraham
+Gary Cahill|Hakim Ziyech
+Gary Cahill|Jaap Stam
+Gary Cahill|Niklas Süle
+Gary Neville|Joshua Kimmich
+Gary Neville|Timo Werner
+Gennaro Gattuso|Rodrigo Bentancur
+Gennaro Gattuso|Rúben Dias
+Gerard Piqué|Jude Bellingham
+Hakim Ziyech|Ivan Perišić
+Hakim Ziyech|Joel Matip
+Hakim Ziyech|Kalvin Phillips
+Hakim Ziyech|Lucas Hernández
+Hakim Ziyech|Marco Materazzi
+Hakim Ziyech|Neymar
+Hakim Ziyech|Niklas Süle
+Hakim Ziyech|Phil Foden
+Hakim Ziyech|Steven Gerrard
+Iker Casillas|Jack Grealish
+Ilkay Gündogan|Joel Matip
+Ilkay Gündogan|Karim Benzema
+Ilkay Gündogan|Mohamed Salah
+Ilkay Gündogan|Serge Aurier
+Ilkay Gündogan|Timo Werner
+Ivan Perišić|Raphael Varane
+Ivan Perišić|Roberto Donadoni
+Ivan Perišić|Serge Aurier
+Jaap Stam|Jude Bellingham
+Jaap Stam|Vinícius Júnior
+Jack Grealish|Jordi Alba
+Jack Grealish|Kai Havertz
+Jack Grealish|Robert Lewandowski
+Jack Grealish|Sadio Mané
+Jack Grealish|Sami Khedira
+Jack Grealish|Serge Aurier
+Jack Grealish|Virgil van Dijk
+Jean-Pierre Papin|Mohamed Salah
+Joel Matip|Kai Havertz
+Joel Matip|Kalvin Phillips
+Joel Matip|Mason Mount
+Joel Matip|Vinícius Júnior
+Johan Cruyff|Lionel Messi
+John Stones|Virgil van Dijk
+Jordi Alba|Kalvin Phillips
+Jordi Alba|Rodrigo Bentancur
+Joshua Kimmich|Juan Mata
+Joshua Kimmich|Max Aarons
+Joshua Kimmich|Michael Carrick
+Joshua Kimmich|Mohamed Salah
+Joshua Kimmich|Nathan Aké
+Joshua Kimmich|Patrick Bamford
+Joshua Kimmich|Phil Foden
+Joshua Kimmich|Rodrigo Bentancur
+Joshua Kimmich|Zinedine Zidane
+Jude Bellingham|Kai Havertz
+Jude Bellingham|Kevin De Bruyne
+Jude Bellingham|Michail Antonio
+Jude Bellingham|Serge Aurier
+Jude Bellingham|Tammy Abraham
+Kai Havertz|Lucas Hernández
+Kai Havertz|Manuel Neuer
+Kai Havertz|Neymar
+Kai Havertz|Nicolas Anelka
+Kai Havertz|Niklas Süle
+Kai Havertz|Rio Ferdinand
+Kai Havertz|Rúben Dias
+Kalvin Phillips|Mason Mount
+Kalvin Phillips|Niklas Süle
+Kalvin Phillips|Reece James
+Karim Benzema|Manuel Akanji
+Karim Benzema|Max Aarons
+Karim Benzema|Virgil van Dijk
+Kevin De Bruyne|Max Aarons
+Kevin De Bruyne|Mohamed Salah
+Kevin De Bruyne|Sadio Mané
+Leon Goretzka|Mason Mount
+Leon Goretzka|Michael Carrick
+Leon Goretzka|Nathan Aké
+Leon Goretzka|Patrick Bamford
+Leon Goretzka|Roberto Donadoni
+Leon Goretzka|Ronaldinho
+Leon Goretzka|Steve McManaman
+Leon Goretzka|Tammy Abraham
+Lionel Messi|Mason Mount
+Lionel Messi|Thibaut Courtois
+Lucas Hernández|Reece James
+Manuel Akanji|Robert Lewandowski
+Manuel Akanji|Sadio Mané
+Manuel Akanji|Sami Khedira
+Manuel Akanji|Zinedine Zidane
+Marc-André ter Stegen|Mason Mount
+Marc-André ter Stegen|Mohamed Salah
+Marc-André ter Stegen|Serge Aurier
+Marco Materazzi|Mason Mount
+Mason Mount|Riyad Mahrez
+Max Aarons|Mohamed Salah
+Max Aarons|Neymar
+Max Aarons|Phil Foden
+Max Aarons|Raphael Varane
+Max Aarons|Riyad Mahrez
+Max Aarons|Sadio Mané
+Michail Antonio|Robert Lewandowski
+Mohamed Salah|Robert Lewandowski
+Mohamed Salah|Zinedine Zidane
+Nathan Aké|Rodrigo Bentancur
+Neymar|Niklas Süle
+Neymar|Steve McManaman
+Neymar|Virgil van Dijk
+Nicolas Anelka|Phil Foden
+Nicolas Anelka|Riyad Mahrez
+Niklas Süle|Phil Foden
+Niklas Süle|Reece James
+Niklas Süle|Rúben Dias
+Niklas Süle|Tammy Abraham
+Patrice Evra|Vinícius Júnior
+Patrick Bamford|Rodrigo Bentancur
+Phil Foden|Sadio Mané
+Phil Foden|Serge Aurier
+Phil Foden|Zinedine Zidane
+Raphael Varane|Tammy Abraham
+Reece James|Rúben Dias
+Riyad Mahrez|Serge Aurier
+Riyad Mahrez|Timo Werner
+Riyad Mahrez|Tony Adams
+Riyad Mahrez|Wesley Sneijder
+Robert Lewandowski|Roberto Carlos
+Robert Lewandowski|Virgil van Dijk
+Roberto Carlos|Rúben Dias
+Roberto Firmino|Rodrigo Bentancur
+Rodrigo Bentancur|Ronaldinho
+Rodrigo Bentancur|Tammy Abraham
+Ronaldinho|Sadio Mané
+Rúben Dias|Serge Aurier
+Steve McManaman|Virgil van Dijk
+Steven Gerrard|Timo Werner
+Thiago Silva|Virgil van Dijk
+Thibaut Courtois|Virgil van Dijk
+Vinícius Júnior|Virgil van Dijk
